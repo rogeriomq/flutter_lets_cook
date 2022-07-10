@@ -10,40 +10,48 @@ class TabsPage extends StatefulWidget {
 }
 
 class _TabsPageState extends State<TabsPage> {
-  final tabBar = const TabBar(
-    tabs: [
-      Tab(
-        icon: Icon(Icons.category),
-        text: 'Categories',
-      ),
-      Tab(
-        icon: Icon(Icons.star),
-        text: 'Favorites',
-      ),
-    ],
-  );
+  int _selectedPageIndex = 0;
+
+  final List<Widget> _pages = [
+    const CategoriesPage(),
+    const FavoritePage(),
+  ];
+
+  final List _titles = ['Categories', 'Favorites'];
+
+  void _selectScreen(int index) {
+    setState(() {
+      _selectedPageIndex = index;
+    });
+    debugPrint('$index');
+  }
+
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 2,
-      initialIndex: 0,
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Let\'s cook'),
-          // bottom: tabBar,
-        ),
-        body: const TabBarView(
-          children: [
-            CategoriesPage(),
-            FavoritePage(),
-          ],
-        ),
-        bottomNavigationBar: SafeArea(
-          child: Container(
-            color: Theme.of(context).primaryColor,
-            child: tabBar,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(_titles[_selectedPageIndex]),
+      ),
+      body: _pages[_selectedPageIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: _selectScreen,
+        showSelectedLabels: true,
+        backgroundColor: Theme.of(context).primaryColor,
+        unselectedItemColor: Colors.white,
+        selectedItemColor: Theme.of(context).colorScheme.secondary,
+        currentIndex: _selectedPageIndex,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.category_outlined),
+            label: 'Categories',
+            tooltip: 'Categories',
           ),
-        ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.star),
+            label: 'Favorites',
+            tooltip: 'Favorites',
+          ),
+        ],
       ),
     );
   }
