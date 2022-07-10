@@ -17,7 +17,7 @@ class CategoriesPage extends StatelessWidget {
           crossAxisSpacing: 20,
           mainAxisSpacing: 20,
         ),
-        children: dummyCategories.map((category) {
+        children: DUMMY_CATEGORIES.map((category) {
           return CategoryItem(category: category);
         }).toList(),
       ),

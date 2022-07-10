@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lets_cook/app_routes.dart';
 import 'package:lets_cook/pages/categories_meals_page.dart';
 import 'package:lets_cook/pages/categories_page.dart';
+import 'package:lets_cook/pages/meal_detail_page.dart';
 
 void main() {
   runApp(const MainApp());
@@ -29,7 +30,13 @@ class MainApp extends StatelessWidget {
       initialRoute: AppRoutes.HOME,
       routes: {
         AppRoutes.HOME: (context) => const CategoriesPage(),
-        AppRoutes.CATEGORY_MEALS: (context) => const CategoriesMealsPage()
+        AppRoutes.CATEGORY_MEALS: (context) => const CategoriesMealsPage(),
+        AppRoutes.MEAL_DETAIL: (context) => const MealDetailPage()
+      },
+      onUnknownRoute: (settings) {
+        return MaterialPageRoute(builder: (_) {
+          return const CategoriesPage();
+        });
       },
     );
   }
