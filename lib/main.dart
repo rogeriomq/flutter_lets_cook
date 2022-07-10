@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lets_cook/app_routes.dart';
 import 'package:lets_cook/pages/categories_meals_page.dart';
 import 'package:lets_cook/pages/meal_detail_page.dart';
+import 'package:lets_cook/pages/settings_page.dart';
 import 'package:lets_cook/pages/tabs_page.dart';
 
 void main() {
@@ -14,7 +15,8 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = ThemeData(
-      primarySwatch: Colors.pink,
+      primarySwatch: Colors.red,
+      primaryColor: const Color(0xFF732002),
       fontFamily: 'Raleway',
       canvasColor: const Color.fromRGBO(255, 254, 229, 1),
       textTheme: ThemeData.light().textTheme.copyWith(
@@ -28,12 +30,16 @@ class MainApp extends StatelessWidget {
     );
     return MaterialApp(
       theme: theme.copyWith(
-          colorScheme: theme.colorScheme.copyWith(secondary: Colors.amber)),
+          colorScheme: theme.colorScheme.copyWith(
+        secondary: const Color(0XFFF29F05),
+        tertiary: const Color(0XFFF27405),
+      )),
       initialRoute: AppRoutes.HOME,
       routes: {
         AppRoutes.HOME: (context) => const TabsPage(),
         AppRoutes.CATEGORY_MEALS: (context) => const CategoriesMealsPage(),
-        AppRoutes.MEAL_DETAIL: (context) => const MealDetailPage()
+        AppRoutes.MEAL_DETAIL: (context) => const MealDetailPage(),
+        AppRoutes.SETTINGS: (context) => const SettingsPage(),
       },
       onUnknownRoute: (settings) {
         return MaterialPageRoute(builder: (_) {
