@@ -1,16 +1,17 @@
 # lets_cook
 
-A new Flutter project.
+Flutter project for component studies and setting with the dart language and Flutter framework.
+### This project is part of the Course:
+[**Aprenda flutter e Desenvolva Apps para Android e IOS 2022**](https://www.udemy.com/course/curso-flutter)
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+#### What was achieved with this study:
+- Native Navigation Options;
+- Multiples Widgets;
+- News Widgets(Tab, Drawer...);
 
-A few resources to get you started if this is your first Flutter project:
+- Using Provider pack(Personal Bonus);
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+**And lots of fun;**
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+_Long live the flutter, very good experience so far_ 🙌🏽🥰.
